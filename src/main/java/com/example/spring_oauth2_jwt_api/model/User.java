@@ -1,6 +1,7 @@
 package com.example.spring_oauth2_jwt_api.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import jakarta.persistence.*;
@@ -8,6 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@Builder
 @Table(name = "users")
 public class User {
 

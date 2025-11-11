@@ -23,10 +23,11 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
         User dbUser = userRepository.findByEmail(email)
                 .orElseGet(() -> {
-                    User newUser = new User();
-                    newUser.setEmail(email);
-                    newUser.setName(name);
-                    newUser.setGoogleId(googleId);
+                    User newUser = User.builder()
+                            .email(email)
+                            .name(name)
+                            .googleId(googleId)
+                            .build();
                     return userRepository.save(newUser);
                 });
 
